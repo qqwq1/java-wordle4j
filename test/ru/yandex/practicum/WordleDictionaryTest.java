@@ -80,24 +80,24 @@ public class WordleDictionaryTest {
     @Test
     @DisplayName("Ошибка при неправильной длине")
     void isWordCorrectWrongLengthThrows() {
-        assertThrows(InputException.class, () -> dictionary.isWordCorrect("дом")
-                , "Длина введенного слова \"дом\" не равна 5");
+        assertThrows(InputException.class, () -> dictionary.isWordCorrect("дом"),
+                "Длина введенного слова \"дом\" не равна 5");
 
     }
 
     @Test
     @DisplayName("Ошибка при недопустимых символах")
     void isWordCorrectInvalidSymbolsThrows() {
-        assertThrows(InputException.class, () -> dictionary.isWordCorrect("во+ка")
-                , "Слово \"во+ка\" содержит недопустимый символ -> +");
-        assertThrows(InputException.class, () -> dictionary.isWordCorrect("коtел")
-                , "Слово \"коtел\" содержит недопустимый символ -> t");
+        assertThrows(InputException.class, () -> dictionary.isWordCorrect("во+ка"),
+                "Слово \"во+ка\" содержит недопустимый символ -> +");
+        assertThrows(InputException.class, () -> dictionary.isWordCorrect("коtел"),
+                "Слово \"коtел\" содержит недопустимый символ -> t");
     }
 
     @Test
     @DisplayName("Ошибка, если слова нет в словаре")
     void isWordCorrectWordNotInDictionaryThrows() {
-        assertThrows(InputException.class, () -> dictionary.isWordCorrect("книга")
-                , "В словаре нет слова \"книга\"");
+        assertThrows(InputException.class, () -> dictionary.isWordCorrect("книга"),
+                "В словаре нет слова \"книга\"");
     }
 }

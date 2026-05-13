@@ -24,8 +24,8 @@ public class WordleDictionaryLoader {
 
     private Set<String> readDictionaryFromFile() {
         Set<String> uniqueWordsWithCorrectLength = new HashSet<>();
-        try (BufferedReader dictionaryReader = new BufferedReader(new FileReader(dictionaryFilePath.toFile()
-                , StandardCharsets.UTF_8))) {
+        try (BufferedReader dictionaryReader = new BufferedReader(new FileReader(dictionaryFilePath.toFile(),
+                StandardCharsets.UTF_8))) {
 
             String line;
             while ((line = dictionaryReader.readLine()) != null) {
