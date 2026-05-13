@@ -71,7 +71,7 @@ public class Wordle {
                     wordleGame.setUserAnswer(helpWord);
                 }
                 System.out.println(wordleGame.getMatches());
-                if (wordleGame.isGameFinished()) {
+                if (wordleGame.isWin()) {
                     if (wordleGame.getUserAnswer().equals(wordleGame.getAnswer())) {
                         System.out.println("Поздравляю, ты победил");
                     } else {

@@ -40,7 +40,7 @@ class WordleGameTest {
         String matches = game.getMatches();
 
         assertEquals("+++++", matches);
-        assertTrue(game.isGameFinished());
+        assertTrue(game.isWin());
     }
 
     @Test
@@ -54,7 +54,7 @@ class WordleGameTest {
         // л а м п а
         // - + ^ - +
         assertEquals("-+^-+", matches);
-        assertFalse(game.isGameFinished());
+        assertFalse(game.isWin());
     }
 
     @Test
@@ -78,7 +78,7 @@ class WordleGameTest {
             game.getMatches();
         }
 
-        assertTrue(game.isGameFinished());
+        assertTrue(game.isWin());
     }
 
     @Test
@@ -159,7 +159,7 @@ class WordleGameTest {
             game.getMatches();
         }
 
-        assertFalse(game.isGameFinished());
+        assertFalse(game.isWin());
     }
 
 }

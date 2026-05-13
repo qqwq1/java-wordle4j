@@ -25,7 +25,6 @@ public class WordleDictionaryLoaderTest {
 
     @BeforeEach
     public void setUp() throws IOException {
-
         logFile = tempDir.resolve("test.log").toFile();
         logFile.createNewFile();
     }
@@ -40,10 +39,8 @@ public class WordleDictionaryLoaderTest {
         );
         Path dictFile = createTestFile(testWords);
 
-
         loader = new WordleDictionaryLoader(logFile, dictFile);
         WordleDictionary dictionary = loader.getWordleDictionary();
-
 
         assertNotNull(dictionary);
         assertEquals(3, dictionary.getWordsDictionary().size());

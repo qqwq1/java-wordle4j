@@ -130,7 +130,7 @@ public class WordleGame {
         return counter;
     }
 
-    public boolean isGameFinished() {
+    public boolean isWin() {
         return steps == 0 || userAnswer.equals(answer);
     }
 }
