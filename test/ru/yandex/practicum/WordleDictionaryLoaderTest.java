@@ -40,7 +40,7 @@ public class WordleDictionaryLoaderTest {
         Path dictFile = createTestFile(testWords);
 
         loader = new WordleDictionaryLoader(logFile, dictFile);
-        WordleDictionary dictionary = loader.getWordleDictionary();
+        WordleDictionary dictionary = loader.loadWordleDictionary();
 
         assertNotNull(dictionary);
         assertEquals(3, dictionary.getWordsDictionary().size());
@@ -63,7 +63,7 @@ public class WordleDictionaryLoaderTest {
 
 
         loader = new WordleDictionaryLoader(logFile, dictFile);
-        WordleDictionary dictionary = loader.getWordleDictionary();
+        WordleDictionary dictionary = loader.loadWordleDictionary();
 
 
         assertEquals(2, dictionary.getWordsDictionary().size());
@@ -83,7 +83,7 @@ public class WordleDictionaryLoaderTest {
 
 
         loader = new WordleDictionaryLoader(logFile, dictFile);
-        WordleDictionary dictionary = loader.getWordleDictionary();
+        WordleDictionary dictionary = loader.loadWordleDictionary();
 
 
         assertEquals(1, dictionary.getWordsDictionary().size());
@@ -106,7 +106,7 @@ public class WordleDictionaryLoaderTest {
 
 
         loader = new WordleDictionaryLoader(logFile, dictFile);
-        WordleDictionary dictionary = loader.getWordleDictionary();
+        WordleDictionary dictionary = loader.loadWordleDictionary();
 
 
         assertEquals(1, dictionary.getWordsDictionary().size());
@@ -126,7 +126,7 @@ public class WordleDictionaryLoaderTest {
 
 
         loader = new WordleDictionaryLoader(logFile, dictFile);
-        WordleDictionary dictionary = loader.getWordleDictionary();
+        WordleDictionary dictionary = loader.loadWordleDictionary();
 
 
         assertEquals(3, dictionary.getWordsDictionary().size());
@@ -148,7 +148,7 @@ public class WordleDictionaryLoaderTest {
 
 
         loader = new WordleDictionaryLoader(logFile, dictFile);
-        WordleDictionary dictionary = loader.getWordleDictionary();
+        WordleDictionary dictionary = loader.loadWordleDictionary();
 
 
         assertEquals(3, dictionary.getWordsDictionary().size());
@@ -172,7 +172,7 @@ public class WordleDictionaryLoaderTest {
 
 
         loader = new WordleDictionaryLoader(logFile, dictFile);
-        WordleDictionary dictionary = loader.getWordleDictionary();
+        WordleDictionary dictionary = loader.loadWordleDictionary();
 
 
         assertEquals(3, dictionary.getWordsDictionary().size());
@@ -196,7 +196,7 @@ public class WordleDictionaryLoaderTest {
 
 
         loader = new WordleDictionaryLoader(logFile, dictFile);
-        WordleDictionary dictionary = loader.getWordleDictionary();
+        WordleDictionary dictionary = loader.loadWordleDictionary();
 
 
         assertEquals(3, dictionary.getWordsDictionary().size());
@@ -214,7 +214,7 @@ public class WordleDictionaryLoaderTest {
 
 
         loader = new WordleDictionaryLoader(logFile, dictFile);
-        WordleDictionary dictionary = loader.getWordleDictionary();
+        WordleDictionary dictionary = loader.loadWordleDictionary();
 
 
         assertNotNull(dictionary);
@@ -235,7 +235,7 @@ public class WordleDictionaryLoaderTest {
 
 
         loader = new WordleDictionaryLoader(logFile, dictFile);
-        WordleDictionary dictionary = loader.getWordleDictionary();
+        WordleDictionary dictionary = loader.loadWordleDictionary();
 
 
         assertNotNull(dictionary);
@@ -257,7 +257,7 @@ public class WordleDictionaryLoaderTest {
 
 
         loader = new WordleDictionaryLoader(logFile, dictFile);
-        WordleDictionary dictionary = loader.getWordleDictionary();
+        WordleDictionary dictionary = loader.loadWordleDictionary();
 
 
         assertNotNull(dictionary);
@@ -266,13 +266,13 @@ public class WordleDictionaryLoaderTest {
 
     @Test
     @DisplayName("Возврат WordleDictionary не null")
-    public void testGetWordleDictionaryNotNull() throws IOException {
+    public void testLoadWordleDictionaryNotNull() throws IOException {
 
         Path dictFile = createTestFile(List.of("слово"));
 
 
         loader = new WordleDictionaryLoader(logFile, dictFile);
-        WordleDictionary dictionary = loader.getWordleDictionary();
+        WordleDictionary dictionary = loader.loadWordleDictionary();
 
 
         assertNotNull(dictionary);

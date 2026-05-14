@@ -34,24 +34,11 @@ public class Wordle {
             final Path dictionaryFilePath = args.length >= 2 ? Path.of(args[1]) : Path.of("words_ru.txt");
             createLogFile(logFilePath);
             WordleDictionaryLoader dictionaryLoader = new WordleDictionaryLoader(logFile, dictionaryFilePath);
-            WordleDictionary dictionary = dictionaryLoader.getWordleDictionary();
+            WordleDictionary dictionary = dictionaryLoader.loadWordleDictionary();
             String answer = dictionary.getRandomWord();
             WordleGame wordleGame = new WordleGame(answer, dictionary);
-            System.out.println("Привет, это игра \"Wordle\"!");
-            System.out.println("Правила игры очень простые: я загадал существительное в единственном числе");
-            System.out.println("именительном падеже, которое состоит из 5 букв русского алфавита");
-            System.out.println("Как будешь готов - введи слово из 5 букв,");
-            System.out.println("а после этого я дам тебе подсказку в формате:");
-            System.out.println("--------");
-            System.out.println("> гонец\n" + "> +^-^-");
-            System.out.println("--------");
-            System.out.println("Загаданное слово: \"герой\"");
-            System.out.println("- введенной буквы нет в слове");
-            System.out.println("+ введенная буква стоит на правильном месте");
-            System.out.println("^ введенная буква есть в слове, но стоит не на своем месте");
-            System.out.println();
-            System.out.println("И самое главное: если затрудняешься ответить - просто нажми " +
-                    "Enter и я дам слово подсказку");
+
+            printRules();
             while (true) {
                 String input = scanner.nextLine();
 
@@ -89,13 +76,31 @@ public class Wordle {
         }
     }
 
-    public static void writeLog(Throwable exception) {
+    private static void writeLog(Throwable exception) {
         printWriter.println("Ошибка: " + exception);
         for (StackTraceElement stack : exception.getStackTrace()) {
             printWriter.println("Класс: " + stack.getFileName()
                     + ", Метод: " + stack.getMethodName()
                     + ", Строка: " + stack.getLineNumber());
         }
+    }
+
+    private static void printRules() {
+        System.out.println("Привет, это игра \"Wordle\"!");
+        System.out.println("Правила игры очень простые: я загадал существительное в единственном числе");
+        System.out.println("именительном падеже, которое состоит из 5 букв русского алфавита");
+        System.out.println("Как будешь готов - введи слово из 5 букв,");
+        System.out.println("а после этого я дам тебе подсказку в формате:");
+        System.out.println("--------");
+        System.out.println("> гонец\n" + "> +^-^-");
+        System.out.println("--------");
+        System.out.println("Загаданное слово: \"герой\"");
+        System.out.println("- введенной буквы нет в слове");
+        System.out.println("+ введенная буква стоит на правильном месте");
+        System.out.println("^ введенная буква есть в слове, но стоит не на своем месте");
+        System.out.println();
+        System.out.println("И самое главное: если затрудняешься ответить - просто нажми " +
+                "Enter и я дам слово подсказку");
     }
 
 }

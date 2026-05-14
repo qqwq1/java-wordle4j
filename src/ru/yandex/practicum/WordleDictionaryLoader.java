@@ -33,17 +33,17 @@ public class WordleDictionaryLoader {
                 boolean isCorrect = true;
                 if (word.length() != LENGTH) {
                     continue;
-                } else {
-                    for (int i = 0; i < word.length(); i++) {
-                        if (!((word.charAt(i) >= 1072 && word.charAt(i) <= 1103) || word.charAt(i) == 1105)) {
-                            isCorrect = false;
-                            break;
-                        }
-                        if (word.charAt(i) == 'ё') {
-                            word.replace(i, i + 1, "е");
-                        }
+                }
+                for (int i = 0; i < word.length(); i++) {
+                    if (!((word.charAt(i) >= 1072 && word.charAt(i) <= 1103) || word.charAt(i) == 1105)) {
+                        isCorrect = false;
+                        break;
+                    }
+                    if (word.charAt(i) == 'ё') {
+                        word.replace(i, i + 1, "е");
                     }
                 }
+
                 if (isCorrect) {
                     uniqueWordsWithCorrectLength.add(word.toString());
                 }
@@ -61,7 +61,7 @@ public class WordleDictionaryLoader {
         return uniqueWordsWithCorrectLength;
     }
 
-    public WordleDictionary getWordleDictionary() {
+    public WordleDictionary loadWordleDictionary() {
         Set<String> dictionary = readDictionaryFromFile();
         return new WordleDictionary(new ArrayList<>(dictionary));
     }

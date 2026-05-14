@@ -23,10 +23,10 @@ public class WordleDictionary {
     }
 
     public String isWordCorrect(String input) throws InputException {
-        String result = input.strip().toLowerCase().replace("ё", "е");
         if (input.isEmpty()) {
             return input;
         }
+        String result = normalize(input);
         if (result.length() != LENGTH) {
             throw new InputException("Длина введенного слова \"" + input + "\" не равна " + LENGTH);
         }
@@ -47,5 +47,12 @@ public class WordleDictionary {
 
     public void removeWord(String word) {
         words.remove(word);
+    }
+
+    private String normalize(String input) {
+        if (input.isEmpty()) {
+            return input;
+        }
+        return input.strip().toLowerCase().replace("ё", "е");
     }
 }
