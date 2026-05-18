@@ -22,7 +22,7 @@ public class WordleGame {
     private final Map<Character, Integer> userAnswerMap;
     private final char[] correctLettersByPosition;
     private int steps;
-    private final int MAX_STEPS = 6;
+    private static final int MAX_STEPS = 6;
     private final WordleDictionary dictionary;
 
     public WordleGame(String answer, WordleDictionary dictionary) {
