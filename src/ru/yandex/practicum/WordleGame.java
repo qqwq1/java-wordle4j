@@ -21,7 +21,8 @@ public class WordleGame {
     private final Map<Character, Integer> answerMap;
     private final Map<Character, Integer> userAnswerMap;
     private final char[] correctLettersByPosition;
-    private int maxSTEPS = 6;
+    private int steps;
+    private final int MAX_STEPS = 6;
     private final WordleDictionary dictionary;
 
     public WordleGame(String answer, WordleDictionary dictionary) {
@@ -31,6 +32,7 @@ public class WordleGame {
         correctLettersByPosition = new char[answer.length()];
         Arrays.fill(correctLettersByPosition, '_');
         userAnswerMap = new HashMap<>();
+        steps = MAX_STEPS;
     }
 
     public void setUserAnswer(String userAnswer) {
@@ -65,7 +67,7 @@ public class WordleGame {
             }
         }
         calculateUserAnswerMap(map);
-        maxSTEPS--;
+        steps--;
         return matches.toString();
     }
 
@@ -131,6 +133,6 @@ public class WordleGame {
     }
 
     public boolean isWin() {
-        return maxSTEPS == 0 || userAnswer.equals(answer);
+        return steps == 0 || userAnswer.equals(answer);
     }
 }
